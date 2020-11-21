@@ -1,4 +1,4 @@
-#TODO calculate forces
+#To Do: Beautify output
 axis = ['x' ,'y' ,'z']
 def cross(a, b):
     c = [a[1]*b[2] - a[2]*b[1],
@@ -34,8 +34,5 @@ c_p = enter()
 print('Enter midpoint of shaft surface: [m]')
 m_p = enter()
 delta = distance(m_p,c_p)
-R = resultant(lift, drag)
-print(cross(delta,R))
-
-
-
+r_tot = resultant(lift, drag)
+torque = cross(delta,r_tot)
