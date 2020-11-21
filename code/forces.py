@@ -1,20 +1,41 @@
 #TODO calculate forces
-lift = []
-drag = []
-R = []
 axis = ['x' ,'y' ,'z']
-print('Enter lift and drag forces:')
-print('')
+def cross(a, b):
+    c = [a[1]*b[2] - a[2]*b[1],
+         a[2]*b[0] - a[0]*b[2],
+         a[0]*b[1] - a[1]*b[0]]
+    return c
+
+def enter():
+    lst = []
+    for i in range(0, 3):
+       lst.append(float(input(axis[i] + ':  ')))
+    return lst
+
+def distance(r1,r2):
+    lst = []
+    for i in range(0, 3):
+      lst.append(r2[i]-r1[i])
+    return lst
+
+def resultant(f1,f2):
+    lst = []
+    for i in range (0,3):
+       lst.append(f1[i]+f2[i])
+    return lst
+
+print('Enter lift and drag forces: [N]')
 print('Lift:')
-for i in range(0, 3):
-   ele = float(input(axis[i] + ':  '))
-   lift.append(ele)
+lift = enter()
 print('Drag: ')
-for i in range(0, 3):
-   ele = float(input(axis[i] + ':  '))
-   drag.append(ele)
+drag = enter()
+print('Enter position of Center of Pressure: [m]')
+c_p = enter()
+print('Enter midpoint of shaft surface: [m]')
+m_p = enter()
+delta = distance(m_p,c_p)
+R = resultant(lift, drag)
+print(cross(delta,R))
 
-for i in range(0,3):
-    R.append(lift[i] + drag[i])
 
-print(R)
+
