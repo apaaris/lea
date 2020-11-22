@@ -9,7 +9,7 @@ Lea is a lightweight active control system for supersonic rockets. It was first 
 
 ### To Do
 - Add BOM
-- Redesign/Remove bulkhead
+- Add gears and shorten axle
 - Implement an open source control algorithm
 
 #### Btw, who's lea?
