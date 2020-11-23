@@ -9,10 +9,13 @@ def cross(a, b):
     return c
 
 
-def enter():
-    lst = []
-    for i in range(0, 3):
-        lst.append(float(input(axis[i] + ':  ')))
+def enter(a):
+    input_string = input('%s' % a)
+    lst = (input_string.split())
+    lst = list(map(float, lst))
+    if len(lst) != 3:
+        print('Wrong size')
+        assert(len(lst) == 3)
     return lst
 
 
@@ -28,19 +31,18 @@ def resultant(f1, f2, sign):
 
 
 def main():
+    print('Enter data divided by a space: eg. 12 1 4')
     print('Enter lift and drag forces: [N]')
-    print('Lift:')
-    lift = enter()
-    print('Drag: ')
-    drag = enter()
+    lift = enter('Lift: ')
+    drag = enter('Drag: ')
     print('Enter position of Center of Pressure: [m]')
-    c_p = enter()
+    c_p = enter('CoP: ')
     print('Enter midpoint of shaft surface: [m]')
-    m_p = enter()
+    m_p = enter('MidP: ')
     delta = resultant(m_p, c_p, 0)
     r_tot = resultant(lift, drag, 1)
     torque = cross(delta, r_tot)
-    print(str(delta) + '  ' + str(torque))
+    print('Max torque: ' + str(torque))
     return 0
 
 
