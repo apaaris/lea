@@ -16,17 +16,14 @@ def enter():
     return lst
 
 
-def distance(r1, r2):
+def resultant(f1, f2, sign):
     lst = []
-    for i in range(0, 3):
-        lst.append(r2[i]-r1[i])
-    return lst
-
-
-def resultant(f1, f2):
-    lst = []
-    for i in range(0, 3):
-        lst.append(f1[i]+f2[i])
+    if sign == 1:
+        for i in range(0, 3):
+            lst.append(f1[i]+f2[i])
+    else:
+        for i in range(0, 3):
+            lst.append(f2[i]-f1[i])
     return lst
 
 
@@ -40,9 +37,10 @@ def main():
     c_p = enter()
     print('Enter midpoint of shaft surface: [m]')
     m_p = enter()
-    delta = distance(m_p, c_p)
-    r_tot = resultant(lift, drag)
+    delta = resultant(m_p, c_p, 0)
+    r_tot = resultant(lift, drag, 1)
     torque = cross(delta, r_tot)
+    print(str(delta) + '  ' + str(torque))
     return 0
 
 
