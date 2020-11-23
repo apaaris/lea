@@ -30,7 +30,7 @@ def resultant(f1, f2, sign):
     return lst
 
 
-def main():
+def run_t():
     print('Enter data divided by a space: eg. 12 1 4')
     print('Enter lift and drag forces: [N]')
     lift = enter('Lift: ')
@@ -42,7 +42,11 @@ def main():
     delta = resultant(m_p, c_p, 0)
     r_tot = resultant(lift, drag, 1)
     torque = cross(delta, r_tot)
-    print('Max torque: ' + str(torque))
+    return torque
+
+
+def main():
+    print('Max torque: ' + str(run_t()))
     return 0
 
 
