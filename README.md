@@ -13,4 +13,4 @@ Lea is a lightweight active control system for supersonic rockets. It was first 
 - Implement an open source control algorithm
 
 #### Btw, who's lea?
-I actually don't know, if you do hmu!
+I actually don't know.
